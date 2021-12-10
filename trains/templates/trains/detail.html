@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}<title>Поезд</title>{% endblock %}
+
+{% block content %}
+	<h1>Поезд</h1>
+	<div class="row">
+		<div class="col-md">
+			<table class="table table-striped">
+				<tr>
+					<th>Номер</th>
+					<th>Откуда</th>
+					<th>Куда</th>
+					<th>Время пути</th>
+					<th>Удалить поезд</th>
+					<th>Изменить поезд</th>
+				</tr>
+				<tr>
+					<td>
+						<a href="{% url 'trains:detail' pk=object.pk %}">
+							{{ object.name }}
+						</a>
+					</td>
+					<td>{{ object.from_city }}</td>
+					<td>{{ object.to_city }}</td>
+					<td>{{ object.travel_time }}</td>
+					<td>
+						<a href="{% url 'trains:delete' pk=object.pk %}">
+							<button type="submit" class="btn btn-danger">Удалить</button>
+						</a>
+					</td>
+					<td>
+						<a href="{% url 'trains:update' pk=object.pk %}">
+							<button type="submit" class="btn btn-primary">Редактировать</button>
+						</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<a href="{% url 'trains:home' %}">
+				<button type="button" class="btn btn-light">Назад к списку</button>
+			</a>
+		</div>
+	</div>
+{% endblock %}

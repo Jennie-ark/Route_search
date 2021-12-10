@@ -1,0 +1,7 @@
+*.html linguist-detectable=false 
+*.xml linguist-detectable=false
+*.css linguist-detectable=false
+css/* linguist-vendored
+*.html linguist-vendored
+static/* linguist-vendored
+templates/* linguist-vendored
